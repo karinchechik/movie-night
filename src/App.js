@@ -1,26 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
+import Movies from "./components/pages/Movies";
+import Movie from "./components/pages/Movie";
+import Favorites from "./components/pages/Favorites";
+import MovieListProvider from "./components/shared/MovieListProvider";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      <BrowserRouter>
+        <MovieListProvider>
+          <Switch>
+            <Route exact path="/movies" component={Movies}/>
+            <Route path="/movies/:id" component={Movie}/>
+            <Route path="/favorites" component={Favorites}/>
+
+            <Redirect from="/" to="/movies"/>
+          </Switch>
+        </MovieListProvider>
+      </BrowserRouter>
+  )
 }
 
 export default App;
