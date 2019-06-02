@@ -2,7 +2,6 @@ import React, {useEffect, useContext} from 'react';
 import {Page, PageTitle, PreviewContainer} from "../shared/Layout";
 import {useMoviesApi} from "../../hooks/use-movies-api";
 import MoviePreview from "../shared/MoviePreview";
-import styled from "@emotion/styled";
 import {ListContext} from "../shared/MovieListProvider";
 import {Link} from "react-router-dom";
 
@@ -19,7 +18,7 @@ const Movie = ({match}) => {
 
   return (
       <Page>
-        <PageTitle>Movie details</PageTitle>
+        <PageTitle>Movie details!</PageTitle>
         <PreviewContainer>
           <MoviePreview movie={movies}/>
           <button onClick={() => addMovie(movies)}>add to list</button>
@@ -28,7 +27,5 @@ const Movie = ({match}) => {
       </Page>
   );
 };
-
-
 
 export default Movie;

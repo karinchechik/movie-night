@@ -5,7 +5,7 @@ import React from "react";
 const MovieGrid = ({ movies }) => {
   return (
       <MovieGridContainer>
-          {(movies || []).map(movie => <MoviePreview movie={movie}/>)}
+          {movies.map(movie => <MoviePreview movie={movie}/>)}
       </MovieGridContainer>
   )
 };
